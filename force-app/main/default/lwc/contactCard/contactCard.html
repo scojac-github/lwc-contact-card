@@ -1,0 +1,82 @@
+<template>
+    <div class="slds-card slds-text-color_inverse">
+        <div class="slds-card__header">
+            <div class="slds-media slds-media_center">
+                <div class="slds-media__figure">
+                    <div class="slds-avatar slds-avatar_circle custom-large-avatar">
+                        <img src={photoUrl} alt="Contact Photo"/>
+                    </div>
+                    <span class="slds-assistive-text">Contact photo</span>
+                </div>
+                <div class="slds-media__body slds-has-flexi-truncate">
+                    <div class="slds-truncate slds-text-heading_large" title={name}><b>{name}</b></div>
+                    <div class="slds-text-body_regular">{cityState}</div>
+                </div>
+            </div>
+        </div>
+
+        <template if:true={contact.data}>
+            <div style="color:white" class="slds-card__body slds-card__body_inner">
+                <div class="slds-media slds-media_center">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-current-color">
+                            <svg class="slds-icon slds-icon_small">
+                                <use xlink:href="/_slds/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Contact icon.</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-heading_small">Customer ID: <b>{recordId}</b></div>
+                    </div>
+                </div>
+
+                <div class="slds-media slds-media_center">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-current-color ">
+                            <svg class="slds-icon custom-utility-icon slds-icon_small">
+                                <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#email"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Email icon</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-heading_small">Email: <b>{email}</b></div>
+                    </div>
+                </div>
+
+                <div class="slds-media slds-media_center">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-current-color">
+                            <svg class="slds-icon custom-utility-icon slds-icon_small">
+                                <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#phone_portrait"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Mobile phone icon</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-heading_small">Phone: <b>{phone}</b></div>
+                    </div>
+                </div>
+
+                <div class="slds-media slds-media_center">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-current-color">
+                            <template if:true={fullAddress}>
+                                <svg class="slds-icon custom-utility-icon slds-icon_small">
+                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#checkin"></use>
+                                </svg>
+                            </template>
+                            <span class="slds-assistive-text">Globe icon.</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <template if:true={fullAddress}>
+                            <div class="slds-text-heading_small">Address: <b>{fullAddress}</b></div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

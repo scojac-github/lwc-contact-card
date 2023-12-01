@@ -1,0 +1,14 @@
+:host {
+    --sds-c-card-color-background: linear-gradient(to bottom, #009DDC, #00588E);
+    display: block;
+}
+
+.custom-large-avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.custom-utility-icon {
+    padding: 0.2rem;
+    border-radius: 50%;
+}
