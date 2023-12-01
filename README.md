@@ -4,8 +4,8 @@ My attempt a making a contact card similar to the one you see in a lot of Salesf
 
 # My LWC
 
-![My Contact Card](https://github.com/scojac-github/lwc-contact-card/images/myLWC.png?raw=true)
+![My Contact Card](https://github.com/scojac-github/lwc-contact-card/images/myLWC.png)
 
 ## Salesforce's Contact Card
 
-![Salesforce Demo Card](https://github.com/scojac-github/lwc-contact-card/images/sfDemoCard.png?raw=true)
+![Salesforce Demo Card](https://github.com/scojac-github/lwc-contact-card/images/sfDemoCard.png)
