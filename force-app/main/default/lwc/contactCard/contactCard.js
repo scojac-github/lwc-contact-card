@@ -17,43 +17,68 @@ const fields = [NAME_FIELD, PHONE_FIELD, EMAIL_FIELD, STREET_FIELD, CITY_FIELD, 
 export default class contactInfo extends LightningElement {
     @api recordId;
 
-    @wire(getRecord, {recordId: '$recordId', fields})
+    @wire(getRecord, { recordId: '$recordId', fields })
     contact;
 
+    connectedCallback() {
+        console.log('Record Id:', this.recordId);
+    }
+
+    handleContactChange() {
+        console.log('Contact Data:', JSON.stringify(this.contact.data, null, 2));
+    }
+
     get name() {
-        return getFieldValue(this.contact.data, NAME_FIELD);
+        const name = getFieldValue(this.contact.data, NAME_FIELD);
+        console.log('Name:', name);
+        return name;
     }
 
     get phone() {
-        return getFieldValue(this.contact.data, PHONE_FIELD);
+        const phone = getFieldValue(this.contact.data, PHONE_FIELD);
+        console.log('Phone:', phone);
+        return phone;
     }
 
     get email() {
-        return getFieldValue(this.contact.data, EMAIL_FIELD);
+        const email = getFieldValue(this.contact.data, EMAIL_FIELD);
+        console.log('Email:', email);
+        return email;
     }
-    
+
     get street() {
-        return getFieldValue(this.contact.data, STREET_FIELD);
+        const street = getFieldValue(this.contact.data, STREET_FIELD);
+        console.log('Street:', street);
+        return street;
     }
 
     get city() {
-        return getFieldValue(this.contact.data, CITY_FIELD);
+        const city = getFieldValue(this.contact.data, CITY_FIELD);
+        console.log('City:', city);
+        return city;
     }
 
     get state() {
-        return getFieldValue(this.contact.data, STATE_FIELD);
+        const state = getFieldValue(this.contact.data, STATE_FIELD);
+        console.log('State:', state);
+        return state;
     }
 
     get zipCode() {
-        return getFieldValue(this.contact.data, ZIP_FIELD);
+        const zipCode = getFieldValue(this.contact.data, ZIP_FIELD);
+        console.log('Zip Code:', zipCode);
+        return zipCode;
     }
 
     get country() {
-        return getFieldValue(this.contact.data, COUNTRY_FIELD)
+        const country = getFieldValue(this.contact.data, COUNTRY_FIELD);
+        console.log('Country:', country);
+        return country;
     }
 
     get cityState() {
         const cityState = [this.city, this.state];
+        console.log('City State:', cityState);
         return cityState.filter(value => value !== null && value !== "").join(', ');
     }
 
@@ -64,12 +89,14 @@ export default class contactInfo extends LightningElement {
         const validAddressParts = addressParts.filter(value => value !== null && value !== "");
 
         // If all address parts are valid, join them; otherwise, return an empty string
-        return validAddressParts.length === addressParts.length ? validAddressParts.join(', ') : '';
+        const fullAddress = validAddressParts.length === addressParts.length ? validAddressParts.join(', ') : '';
+        console.log('Full Address:', fullAddress);
+        return fullAddress;
     }
-
 
     get photoUrl() {
         const photoUrl = getFieldValue(this.contact.data, PHOTO_URL_FIELD);
-        return !photoUrl ? DEFAULT_PIC :getFieldValue(this.contact.data, PHOTO_URL_FIELD);
+        console.log('Photo URL:', photoUrl);
+        return !photoUrl ? DEFAULT_PIC : photoUrl;
     }
 }
