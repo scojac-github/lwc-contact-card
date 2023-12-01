@@ -2,6 +2,7 @@ import { LightningElement, api, wire } from 'lwc';
 import { getFieldValue, getRecord } from 'lightning/uiRecordApi';
 
 import NAME_FIELD from '@salesforce/schema/Contact.Name';
+import TITLE_FIELD from '@salesforce/schema/Contact.Title';
 import PHONE_FIELD from '@salesforce/schema/Contact.MobilePhone';
 import EMAIL_FIELD from '@salesforce/schema/Contact.Email';
 import STREET_FIELD from '@salesforce/schema/Contact.MailingStreet';
@@ -12,7 +13,7 @@ import COUNTRY_FIELD from '@salesforce/schema/Contact.MailingCountry';
 import PHOTO_URL_FIELD from '@salesforce/schema/Contact.Contact_Photo_URL__c';
 import DEFAULT_PIC from '@salesforce/resourceUrl/defaultContactPhoto';
 
-const fields = [NAME_FIELD, PHONE_FIELD, EMAIL_FIELD, STREET_FIELD, CITY_FIELD, STATE_FIELD, ZIP_FIELD, COUNTRY_FIELD, PHOTO_URL_FIELD];
+const fields = [NAME_FIELD, TITLE_FIELD, PHONE_FIELD, EMAIL_FIELD, STREET_FIELD, CITY_FIELD, STATE_FIELD, ZIP_FIELD, COUNTRY_FIELD, PHOTO_URL_FIELD];
 
 export default class contactInfo extends LightningElement {
     @api recordId;
@@ -32,6 +33,12 @@ export default class contactInfo extends LightningElement {
         const name = getFieldValue(this.contact.data, NAME_FIELD);
         console.log('Name:', name);
         return name;
+    }
+
+    get title() {
+        const title = getFieldValue(this.contact.data, TITLE_FIELD);
+        console.log('Title: ', title);
+        return title;
     }
 
     get phone() {
